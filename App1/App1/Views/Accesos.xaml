@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<enlaces:BottomBarPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:enlaces="clr-namespace:BottomBar.XamarinForms;assembly=BottomBar.XamarinForms"
+             x:Class="App1.Views.Accesos">
+    <ContentPage Title="Moodle"
+                 enlaces:BottomBarPageExtensions.TabColor="DodgerBlue">
+        <StackLayout>
+            <ProgressBar Progress="0.2"  
+                 HorizontalOptions="FillAndExpand"  
+                 x:Name="progress"  
+                 IsVisible="True"/>
+            <WebView x:Name="Webview1"  
+                 HeightRequest="1000"  
+                 WidthRequest="1000"
+                 Navigating="OnNavigating"  
+                 Navigated="OnNavigated"
+                 VerticalOptions="FillAndExpand"/>
+        </StackLayout>
+    </ContentPage>
+
+
+    <ContentPage Title="SII"
+                 enlaces:BottomBarPageExtensions.TabColor="ForestGreen">
+        <StackLayout>
+            <ProgressBar Progress="0.2"  
+                 HorizontalOptions="FillAndExpand"
+                 x:Name="progress1"  
+                 IsVisible="True"/>
+            <WebView x:Name="Webview2"  
+                 HeightRequest="1000"  
+                 WidthRequest="1000"
+                 Navigating="OnNavigating"  
+                 Navigated="OnNavigated"
+                 VerticalOptions="FillAndExpand"/>
+        </StackLayout>
+    </ContentPage>
+</enlaces:BottomBarPage>
