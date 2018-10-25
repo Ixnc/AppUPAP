@@ -2,6 +2,7 @@
 
 namespace App1.ViewModels
 {
+    using Plugin.Connectivity;
     using Infrastructure;
     using App1.ViewsMaestros;
     using GalaSoft.MvvmLight.Command;
@@ -53,6 +54,9 @@ namespace App1.ViewModels
         {
             this.IsRemember = true;
             this.IsEnabled = true;
+
+            this.Matricula = "361610";
+            this.Password = "1234";
         }
         #endregion
 
@@ -86,24 +90,39 @@ namespace App1.ViewModels
             this.IsRinning = true;
             this.IsEnabled = false;
 
-            if (this.Matricula!="361610" || this.Password!="1234")
+            if (CrossConnectivity.Current.IsConnected)
             {
+
+                if (this.Matricula != "361610" || this.Password != "1234")
+                {
+                    this.IsRinning = false;
+                    this.IsEnabled = true;
+                    await Application.Current.MainPage.DisplayAlert(
+                        "Error",
+                        "Matricula o Contraseña incorrecta",
+                        "Aceptar");
+                    this.Password = string.Empty;
+                    return;
+                }
                 this.IsRinning = false;
                 this.IsEnabled = true;
-                await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "Matricula o Contraseña incorrecta",
-                    "Aceptar");
+
+                this.Matricula = string.Empty;
                 this.Password = string.Empty;
-                return;
+                MainViewModel.GetInstans().maestro = new MasterDetailMaestro();
+                await Application.Current.MainPage.Navigation.PushAsync(new MasterDetailMaestro());
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                        "Error",
+                        "No hay conexion",
+                        "Aceptar");
+                await Application.Current.MainPage.Navigation.PopAsync();
+                
             }
             this.IsRinning = false;
             this.IsEnabled = true;
-
-            this.Matricula = string.Empty;
-            this.Password = string.Empty;
-            MainViewModel.GetInstans().maestro = new MasterDetailMaestro();
-            await Application.Current.MainPage.Navigation.PushAsync(new MasterDetailMaestro());
         }
         #endregion
     }
