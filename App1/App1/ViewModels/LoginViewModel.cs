@@ -3,6 +3,7 @@
 namespace App1.ViewModels
 {
     using Plugin.Connectivity;
+    using MySql.Data.MySqlClient;
     using Infrastructure;
     using App1.ViewsMaestros;
     using GalaSoft.MvvmLight.Command;
@@ -92,7 +93,6 @@ namespace App1.ViewModels
 
             if (CrossConnectivity.Current.IsConnected)
             {
-
                 if (this.Matricula != "361610" || this.Password != "1234")
                 {
                     this.IsRinning = false;
@@ -101,12 +101,12 @@ namespace App1.ViewModels
                         "Error",
                         "Matricula o Contraseña incorrecta",
                         "Aceptar");
+                    this.Matricula = string.Empty;
                     this.Password = string.Empty;
                     return;
                 }
                 this.IsRinning = false;
                 this.IsEnabled = true;
-
                 this.Matricula = string.Empty;
                 this.Password = string.Empty;
                 MainViewModel.GetInstans().maestro = new MasterDetailMaestro();
