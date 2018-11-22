@@ -36,7 +36,7 @@ namespace App1.Views
             });
             itemmaster.Add(new MasterDetailPage1MenuItem
             {
-                Title = "Cotacto",
+                Title = "Contacto",
                 IconSource = "ic_chat",
                 //TargetType = typeof(MasterDetailPage1)
             });
