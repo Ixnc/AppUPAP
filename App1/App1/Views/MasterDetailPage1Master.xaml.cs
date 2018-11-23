@@ -30,9 +30,15 @@ namespace App1.Views
             });
             itemmaster.Add(new MasterDetailPage1MenuItem
             {
-                Title = "Accesos",
+                Title = "Moodle",
                 IconSource = "ic_link",
                 TargetType = typeof(Accesos)
+            });
+            itemmaster.Add(new MasterDetailPage1MenuItem
+            {
+                Title = "SII",
+                IconSource = "ic_link",
+                TargetType = typeof(SII)
             });
             itemmaster.Add(new MasterDetailPage1MenuItem
             {

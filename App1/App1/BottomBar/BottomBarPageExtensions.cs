@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 
 namespace App1.BottomBar
 {
@@ -53,7 +54,7 @@ namespace App1.BottomBar
         {
             return (Color)bindable.GetValue(BadgeColorProperty);
         }
-
+        
         #endregion
     }
 }

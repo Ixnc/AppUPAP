@@ -109,8 +109,8 @@ namespace App1.ViewModels
                 this.IsEnabled = true;
                 this.Matricula = string.Empty;
                 this.Password = string.Empty;
-                MainViewModel.GetInstans().maestro = new MasterDetailMaestro();
-                await Application.Current.MainPage.Navigation.PushAsync(new MasterDetailMaestro());
+                MainViewModel.GetInstans().master = new Views.MasterDetailPage1();
+                await Application.Current.MainPage.Navigation.PushAsync(new Views.MasterDetailPage1());
             }
             else
             {

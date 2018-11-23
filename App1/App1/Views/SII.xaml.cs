@@ -1,16 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace App1.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Accesos
-    {
-        public Accesos ()
-        {
-            InitializeComponent();
-            Webview1.Source = "http://upnl.com.mx/moodle/login/index.php";
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class SII : ContentPage
+	{
+		public SII ()
+		{
+			InitializeComponent ();
+            var uri = new Uri("http://sip.upnl.edu.mx/alumnos.php/");
+            Device.OpenUri(uri);
         }
         protected async override void OnAppearing()
         {
@@ -27,6 +33,7 @@ namespace App1.Views
         protected void OnNavigated(object sender, WebNavigatedEventArgs e)
         {
             progress.IsVisible = false;
+
         }
     }
 }
