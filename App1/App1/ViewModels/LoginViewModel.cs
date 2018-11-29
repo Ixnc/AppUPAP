@@ -94,11 +94,6 @@ namespace App1.ViewModels
             this.IsRinning = true;
             this.IsEnabled = false;
 
-
-
-
-
-
             if (CrossConnectivity.Current.IsConnected)
             {
                 if (this.Matricula != "361610" || this.Password != "1234")
@@ -121,46 +116,45 @@ namespace App1.ViewModels
                 await Application.Current.MainPage.Navigation.PushAsync(new Views.MasterDetailPage1());
                 this.IsRinning = false;
                 this.IsEnabled = true;
-
-
-            //    MySqlConnection con = new MySqlConnection("server=172.20.10.3;User Id=root;database=pruebas");
-
-
-            //    con.Open(); //Abrimos la conexion creada.
-            //    MySqlCommand cmd = new MySqlCommand("SELECT * FROM alumnos WHERE Matricula='" + this.Matricula + "'AND Password='" + this.Password + "' ", con); //Realizamos una selecion de la tabla usuarios.
-            //    MySqlDataReader leer = cmd.ExecuteReader();
-            //    if (leer.Read()) //Si el usuario es correcto nos abrira la otra ventana.
-            //    {
-            //        this.Matricula = string.Empty;
-            //        this.Password = string.Empty;
-            //        MainViewModel.GetInstans().master = new Views.MasterDetailPage1();
-            //        await Application.Current.MainPage.Navigation.PushAsync(new Views.MasterDetailPage1());
-            //    }
-            //    else //Si no lo es mostrara este mensaje.
-            //    {
-            //        this.IsRinning = false;
-            //        this.IsEnabled = true;
-            //        await Application.Current.MainPage.DisplayAlert(
-            //            "Error",
-            //            "Matricula o Contraseña incorrecta",
-            //            "Aceptar");
-            //        this.Matricula = string.Empty;
-            //        this.Password = string.Empty;
-            //        return;
-            //    }
-            //    con.Close(); //Cerramos la conexion.
-            //}
-            //else
-            //{
-            //    await Application.Current.MainPage.DisplayAlert(
-            //            "Error",
-            //            "No hay conexion",
-            //            "Aceptar");
-            //    await Application.Current.MainPage.Navigation.PopAsync();
-
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                        "Error",
+                        "No hay conexion",
+                        "Aceptar");
+                await Application.Current.MainPage.Navigation.PopAsync();
             }
 
         }
         #endregion
     }
 }
+
+
+//    MySqlConnection con = new MySqlConnection("server=172.20.10.3;User Id=root;database=pruebas");
+
+
+//    con.Open(); //Abrimos la conexion creada.
+//    MySqlCommand cmd = new MySqlCommand("SELECT * FROM alumnos WHERE Matricula='" + this.Matricula + "'AND Password='" + this.Password + "' ", con); //Realizamos una selecion de la tabla usuarios.
+//    MySqlDataReader leer = cmd.ExecuteReader();
+//    if (leer.Read()) //Si el usuario es correcto nos abrira la otra ventana.
+//    {
+//        this.Matricula = string.Empty;
+//        this.Password = string.Empty;
+//        MainViewModel.GetInstans().master = new Views.MasterDetailPage1();
+//        await Application.Current.MainPage.Navigation.PushAsync(new Views.MasterDetailPage1());
+//    }
+//    else //Si no lo es mostrara este mensaje.
+//    {
+//        this.IsRinning = false;
+//        this.IsEnabled = true;
+//        await Application.Current.MainPage.DisplayAlert(
+//            "Error",
+//            "Matricula o Contraseña incorrecta",
+//            "Aceptar");
+//        this.Matricula = string.Empty;
+//        this.Password = string.Empty;
+//        return;
+//    }
+//    con.Close(); //Cerramos la conexion.
