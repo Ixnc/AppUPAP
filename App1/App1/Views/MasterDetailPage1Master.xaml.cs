@@ -60,10 +60,5 @@ namespace App1.Views
             });
             MenuItemsListView.ItemsSource = itemmaster;
         }
-
-        private void Image_SizeChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

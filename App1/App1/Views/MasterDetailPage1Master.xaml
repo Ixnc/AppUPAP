@@ -4,34 +4,25 @@
 			 x:Class="App1.Views.MasterDetailPage1Master"
 			 Title="Master">
     <StackLayout
-	  BackgroundColor="#9E9E9E">
+	  BackgroundColor="DarkGray">
         <ListView x:Name="MenuItemsListView"
 			  SeparatorVisibility="None"
 			  HasUnevenRows="true"
 			  ItemsSource="{Binding MenuItems}">
             <ListView.Header>
-                <Grid BackgroundColor="#FFFFFF">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="10"/>
-                    </Grid.ColumnDefinitions>
+                <Grid BackgroundColor="Transparent">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="10"/>
-                        <RowDefinition Height="70"/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="104" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <Image
-                        Source="upap_menu"
-			            Grid.Column="1"
-			            Grid.Row="1"/>
+                    <Image Source="upap_menu.png" Aspect="AspectFit" />
                 </Grid>
             </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ImageCell 
                         Text="{Binding Title}"
-                        TextColor="White"
+                        TextColor="Black"
                         ImageSource="{Binding IconSource}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
