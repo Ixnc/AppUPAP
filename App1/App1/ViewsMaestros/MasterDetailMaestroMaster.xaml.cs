@@ -1,13 +1,5 @@
 ﻿using App1.Views;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -38,9 +30,21 @@ namespace App1.ViewsMaestros
             });
             itemmaster.Add(new MasterDetailMaestroMenuItem
             {
-                Title = "Accesos",
+                Title = "Calendario Escolar",
                 IconSource = "ic_link",
                 TargetType = typeof(AccesosMaestros)
+            });
+            itemmaster.Add(new MasterDetailMaestroMenuItem
+            {
+                Title = "Moodle",
+                IconSource = "ic_link",
+                TargetType = typeof(AccesosMaestros)
+            });
+            itemmaster.Add(new MasterDetailMaestroMenuItem
+            {
+                Title = "SII",
+                IconSource = "ic_link",
+                TargetType = typeof(SIIMaestros)
             });
             itemmaster.Add(new MasterDetailMaestroMenuItem
             {

@@ -12,10 +12,6 @@ namespace App1.ViewModels
 
     public class LoginViewModel : BaseViewModel
     {
-        #region Services
-        private Service apiService;
-        #endregion
-
         #region Atributos
         private string matricula;
         private string password;
@@ -54,13 +50,12 @@ namespace App1.ViewModels
         #endregion
 
         #region Constructor
-            public LoginViewModel()
+        public LoginViewModel()
         {
-            this.apiService = new Service();
             this.IsRemember = true;
             this.IsEnabled = true;
-
-            
+            this.Matricula = "361610";
+            this.Password = "1234";
         }
         #endregion
 

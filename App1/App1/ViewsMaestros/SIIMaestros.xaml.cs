@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace App1.Views
+namespace App1.ViewsMaestros
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class SII : ContentPage
+	public partial class SIIMaestros : ContentPage
 	{
-		public SII ()
-		{
-			InitializeComponent ();
-            var uri = new Uri("http://sip.upnl.edu.mx/alumnos.php/");
+		public SIIMaestros ()
+        {
+            InitializeComponent();
+            var uri = new Uri("http://sip.upnl.edu.mx/docentes.php/");
             Device.OpenUri(uri);
         }
         protected async override void OnAppearing()

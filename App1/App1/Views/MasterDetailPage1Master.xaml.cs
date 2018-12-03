@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -27,6 +26,12 @@ namespace App1.Views
                 Title = "Proximos Eventos",
                 IconSource = "ic_event",
                 //TargetType = typeof()
+            });
+            itemmaster.Add(new MasterDetailPage1MenuItem
+            {
+                Title = "Calendario Escolar",
+                IconSource = "ic_link",
+                TargetType = typeof(SII)
             });
             itemmaster.Add(new MasterDetailPage1MenuItem
             {

@@ -10,7 +10,6 @@ namespace App1.ViewsMaestros
 		{
             InitializeComponent();
             Webview1.Source = "http://upnl.com.mx/moodle/login/index.php";
-            Webview2.Source = "http://sip.upnl.edu.mx/docentes.php/";
         }
         protected async override void OnAppearing()
         {
@@ -22,14 +21,11 @@ namespace App1.ViewsMaestros
         protected void OnNavigating(object sender, WebNavigatingEventArgs e)
         {
             progress.IsVisible = true;
-            progress1.IsVisible = true;
         }
 
         protected void OnNavigated(object sender, WebNavigatedEventArgs e)
         {
             progress.IsVisible = false;
-            progress1.IsVisible = false;
-
         }
     }
 }
