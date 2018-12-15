@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loca="clr-namespace:App1.ViewModels"
+             x:Class="App1.ViewsMaestros.PreguntasFre">
+    <ContentPage.BindingContext>
+        <loca:MainListView/>
+    </ContentPage.BindingContext>
+
+    <ListView Margin="0,20"  
+              ItemTapped="ListViewItem_Tabbed"  
+              ItemsSource="{Binding Preguntas}"  
+              HasUnevenRows="True">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Padding="18">
+                        <Label Text="{Binding Title}"  
+                               FontSize="25"/>
+                        <StackLayout IsVisible="{Binding Isvisible}"  
+                                     Orientation="Horizontal"  
+                                     Margin="0,0,0,0">
+                            <Label Text="{Binding Respuesta}"
+                                   FontSize="16"/>
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

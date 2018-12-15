@@ -32,7 +32,7 @@ namespace App1.ViewsMaestros
             {
                 Title = "Calendario Escolar",
                 IconSource = "ic_link",
-                TargetType = typeof(AccesosMaestros)
+                TargetType = typeof(Calendario)
             });
             itemmaster.Add(new MasterDetailMaestroMenuItem
             {

@@ -31,7 +31,7 @@ namespace App1.Views
             {
                 Title = "Calendario Escolar",
                 IconSource = "ic_link",
-                TargetType = typeof(SII)
+                TargetType = typeof(Calendario)
             });
             itemmaster.Add(new MasterDetailPage1MenuItem
             {

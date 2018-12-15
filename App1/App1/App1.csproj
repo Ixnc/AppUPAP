@@ -24,8 +24,14 @@
     <Compile Update="ViewsMaestros\MasterDetailMaestroMenuItem.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ViewsMaestros\PreguntasFre.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
     <Compile Update="Views\MasterDetailPage1MenuItem.cs">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Calendario.xaml.cs">
+      <DependentUpon>Calendario.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 

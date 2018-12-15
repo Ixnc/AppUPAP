@@ -91,7 +91,20 @@ namespace App1.ViewModels
 
             if (CrossConnectivity.Current.IsConnected)
             {
-                if (this.Matricula != "361610" || this.Password != "1234")
+                MySqlConnection con = new MySqlConnection("server=127.0.0.1;User Id=root; Password=1309;database=pruebas");
+
+
+                con.Open(); //Abrimos la conexion creada.
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM alumnos WHERE Matricula='" + this.Matricula + "'AND Password='" + this.Password + "' ", con); //Realizamos una selecion de la tabla usuarios.
+                MySqlDataReader leer = cmd.ExecuteReader();
+                if (leer.Read()) //Si el usuario es correcto nos abrira la otra ventana.
+                {
+                    this.Matricula = string.Empty;
+                    this.Password = string.Empty;
+                    MainViewModel.GetInstans().master = new Views.MasterDetailPage1();
+                    await Application.Current.MainPage.Navigation.PushAsync(new Views.MasterDetailPage1());
+                }
+                else //Si no lo es mostrara este mensaje.
                 {
                     this.IsRinning = false;
                     this.IsEnabled = true;
@@ -103,14 +116,31 @@ namespace App1.ViewModels
                     this.Password = string.Empty;
                     return;
                 }
-                this.IsRinning = false;
-                this.IsEnabled = true;
-                this.Matricula = string.Empty;
-                this.Password = string.Empty;
-                MainViewModel.GetInstans().master = new Views.MasterDetailPage1();
-                await Application.Current.MainPage.Navigation.PushAsync(new Views.MasterDetailPage1());
-                this.IsRinning = false;
-                this.IsEnabled = true;
+                con.Close(); //Cerramos la conexion.
+
+
+
+
+                //if (this.Matricula != "361610" || this.Password != "1234")
+                //{
+                //    this.IsRinning = false;
+                //    this.IsEnabled = true;
+                //    await Application.Current.MainPage.DisplayAlert(
+                //        "Error",
+                //        "Matricula o Contraseña incorrecta",
+                //        "Aceptar");
+                //    this.Matricula = string.Empty;
+                //    this.Password = string.Empty;
+                //    return;
+                //}
+                //this.IsRinning = false;
+                //this.IsEnabled = true;
+                //this.Matricula = string.Empty;
+                //this.Password = string.Empty;
+                //MainViewModel.GetInstans().master = new Views.MasterDetailPage1();
+                //await Application.Current.MainPage.Navigation.PushAsync(new Views.MasterDetailPage1());
+                //this.IsRinning = false;
+                //this.IsEnabled = true;
             }
             else
             {
@@ -127,29 +157,3 @@ namespace App1.ViewModels
 }
 
 
-//    MySqlConnection con = new MySqlConnection("server=172.20.10.3;User Id=root;database=pruebas");
-
-
-//    con.Open(); //Abrimos la conexion creada.
-//    MySqlCommand cmd = new MySqlCommand("SELECT * FROM alumnos WHERE Matricula='" + this.Matricula + "'AND Password='" + this.Password + "' ", con); //Realizamos una selecion de la tabla usuarios.
-//    MySqlDataReader leer = cmd.ExecuteReader();
-//    if (leer.Read()) //Si el usuario es correcto nos abrira la otra ventana.
-//    {
-//        this.Matricula = string.Empty;
-//        this.Password = string.Empty;
-//        MainViewModel.GetInstans().master = new Views.MasterDetailPage1();
-//        await Application.Current.MainPage.Navigation.PushAsync(new Views.MasterDetailPage1());
-//    }
-//    else //Si no lo es mostrara este mensaje.
-//    {
-//        this.IsRinning = false;
-//        this.IsEnabled = true;
-//        await Application.Current.MainPage.DisplayAlert(
-//            "Error",
-//            "Matricula o Contraseña incorrecta",
-//            "Aceptar");
-//        this.Matricula = string.Empty;
-//        this.Password = string.Empty;
-//        return;
-//    }
-//    con.Close(); //Cerramos la conexion.
